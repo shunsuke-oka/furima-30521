@@ -11,9 +11,7 @@
 | first_name       | string  | null: false  |
 | last_name_kana   | string  | null: false  |
 | first_name_kana  | string  | null: false  |
-| birth_year       | date    | null: false  |
-| birth_month      | date    | null: false  |
-| birth_day        | date    | null: false  |
+| birthday         | date    | null: false  |
 
 ### Association
 
@@ -51,7 +49,7 @@
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :address
+- has_one :address
 
 ## addresses table
 
@@ -67,4 +65,4 @@
 
 ### Association
 
-- has_one :buy_history
+- belongs_to :buy_history
