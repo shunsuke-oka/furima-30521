@@ -2,20 +2,24 @@
 
 ## users table
 
-| Column    | Type    | Options      |
-|-----------|---------|--------------|
-| nickname  | string  | null: false  |
-| email     | string  | null: false  |
-| password  | string  | null: false  |
-| name      | string  | null: false  |
-| birthday  | date    | null: false  |
+| Column           | Type    | Options      |
+|------------------|---------|--------------|
+| nickname         | string  | null: false  |
+| email            | string  | null: false  |
+| password         | string  | null: false  |
+| last_name        | string  | null: false  |
+| first_name       | string  | null: false  |
+| last_name_kana   | string  | null: false  |
+| first_name_kana  | string  | null: false  |
+| birth_year       | date    | null: false  |
+| birth_month      | date    | null: false  |
+| birth_day        | date    | null: false  |
 
 ### Association
 
 * has_many :items
 * has_many :buy_histories
-* has_one :credit_card
-* has_one :address
+
 
 ## items table
 
@@ -42,28 +46,12 @@
 |--------------|------------|-------------------|
 | user         | references | foreign_key: true |
 | item         | references | foreign_key: true |
-| credit_card  | references | foreign_key: true |
-| address      | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
 - belongs_to :item
-- belongs_to :credit_card
 - belongs_to :address
-
-## credit_cards table
-
-| Column    | Type        | Options           |
-|-----------|-------------|-------------------|
-| card_num  | string      | null: false       |
-| limit     | date        | null: false       |
-| code      | string      | null: false       |
-| user      | references  | foreign_key: true |
-### Association
-
-- has_one :buy_history
-- belongs_to :user
 
 ## addresses table
 
@@ -73,11 +61,10 @@
 | area_id        | integer     | null: false       |
 | city_name      | string      | null: false       |
 | city_num       | string      | null: false       |
-| building_name  | string      | null: false       |
+| building_name  | string      |                   |
 | phone_num      | string      | null: false       |
-| user           | references  | foreign_key: true |
+| buy_history    | references  | foreign_key: true |
 
 ### Association
 
 - has_one :buy_history
-- belongs_to :user
