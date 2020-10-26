@@ -9,8 +9,8 @@ class User < ApplicationRecord
     validates :password, format: { with: VALID_PASSWORD_REGEX }
     validates :email, uniqueness: { case_sensitive: false }
     validates :nickname
-    validates :last_name 
-    validates :first_name
+    validates :last_name, format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
+    validates :first_name, format: {with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}
     validates :last_name_kana, format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,}
     validates :first_name_kana, format: {with: /\A[\p{katakana}　ー－&&[^ -~｡-ﾟ]]+\z/,}
     validates :birthday
