@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
     const inputValue = priceInput.value;
+    console.log(inputValue);
 
     const addTaxDom = document.getElementById("add-tax-price");
     const tax = inputValue * 0.1;
@@ -14,3 +15,4 @@ window.addEventListener('DOMContentLoaded', () => {
     profit.innerHTML = `${gain}`
   })
 });
+setInterval(check, 1000);
