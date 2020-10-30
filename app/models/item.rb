@@ -14,12 +14,14 @@ class Item < ApplicationRecord
   end
   validates :price, format: {with: /\A[0-9]+\z/}
 
-  validates :category_id, numericality: { other_than: 1 }
-  validates :status_id, numericality: { other_than: 1 }
-  validates :delivery_id, numericality: { other_than: 1 }
-  validates :area_id, numericality: { other_than: 1 }
-  validates :day_id, numericality: { other_than: 1 }
-
+  with_options numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :delivery_id
+    validates :area_id
+    validates :day_id
+  end
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :status

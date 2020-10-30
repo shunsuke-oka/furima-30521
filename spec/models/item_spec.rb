@@ -14,10 +14,6 @@ RSpec.describe Item, type: :model do
     end
 
     context "itemが保存できない場合" do
-      it "imageが空では保存できない" do
-        @item.image = ''
-        @item.valid?
-      end
       it "titleが空では保存できない" do
         @item.title = ''
         @item.valid?
@@ -58,10 +54,15 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Price can't be blank")
       end    
-      it "priceが¥300~¥9,999,999の間でないと保存できない" do
+      it "priceが¥300以上でないと保存できない" do
         @item.price = "200"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price must be greater than 300")
+      end    
+      it "priceが¥9,999,999以上でないと保存できない" do
+        @item.price = "10000000"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Price must be less than 9999999")
       end    
       it "priceは半角数字のみ保存可能であること" do
         @item.price = "５００"
