@@ -30,9 +30,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
       end    
       it "選択したcategory_idが1だった場合は保存できない" do
-        @item.category_id = '１'
+        @item.category_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category is not a number")
+        expect(@item.errors.full_messages).to include("Category must be other than 1")
       end    
       it "status_idが空では保存できない" do
         @item.status_id = ''
@@ -40,9 +40,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Status can't be blank", "Status is not a number")
       end    
       it "選択したstatus_idが1だった場合は保存できない" do
-        @item.status_id = '１'
+        @item.status_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Status is not a number")
+        expect(@item.errors.full_messages).to include("Status must be other than 1")
       end    
       it "delivery_idが空では保存できない" do
         @item.delivery_id = ''
@@ -50,9 +50,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery can't be blank", "Delivery is not a number")
       end    
       it "選択したdelivery_idが1だった場合は保存できない" do
-        @item.delivery_id = '１'
+        @item.delivery_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery is not a number")
+        expect(@item.errors.full_messages).to include("Delivery must be other than 1")
       end   
       it "area_idが空では保存できない" do
         @item.area_id = ''
@@ -60,9 +60,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Area can't be blank", "Area is not a number")
       end
       it "選択したarea_idが1だった場合は保存できない" do
-        @item.area_id = '１'
+        @item.area_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Area is not a number")
+        expect(@item.errors.full_messages).to include("Area must be other than 1")
       end   
       it "day_idが空では保存できない" do
         @item.day_id = ''
@@ -70,9 +70,9 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Day can't be blank", "Day is not a number")
       end    
       it "選択したday_idが1だった場合は保存できない" do
-        @item.day_id = '１'
+        @item.day_id = "1"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Day is not a number")
+        expect(@item.errors.full_messages).to include("Day must be other than 1")
       end   
       it "priceが空では保存できない" do
         @item.price = ''
