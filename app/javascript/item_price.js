@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('input', () => {
 
   const priceInput = document.getElementById("item-price");
   priceInput.addEventListener("input", () => {
@@ -14,3 +14,4 @@ window.addEventListener('DOMContentLoaded', () => {
     profit.innerHTML = `${gain}`
   })
 });
+setInterval(check, 1000);
