@@ -30,7 +30,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Category can't be blank", "Category is not a number")
       end    
       it "選択したcategory_idが1だった場合は保存できない" do
-        @item.category_id = "1"
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end    
@@ -40,7 +40,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Status can't be blank", "Status is not a number")
       end    
       it "選択したstatus_idが1だった場合は保存できない" do
-        @item.status_id = "1"
+        @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Status must be other than 1")
       end    
@@ -50,7 +50,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Delivery can't be blank", "Delivery is not a number")
       end    
       it "選択したdelivery_idが1だった場合は保存できない" do
-        @item.delivery_id = "1"
+        @item.delivery_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery must be other than 1")
       end   
@@ -60,7 +60,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Area can't be blank", "Area is not a number")
       end
       it "選択したarea_idが1だった場合は保存できない" do
-        @item.area_id = "1"
+        @item.area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Area must be other than 1")
       end   
@@ -70,7 +70,7 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Day can't be blank", "Day is not a number")
       end    
       it "選択したday_idが1だった場合は保存できない" do
-        @item.day_id = "1"
+        @item.day_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Day must be other than 1")
       end   
