@@ -5,11 +5,11 @@ class UserBuy
   with_options presence: true do
     validates :token
 
-    validates :post_num, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
+    validates :post_num, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
     validates :area_id, numericality: { other_than: 1 }
     validates :city_name
     validates :city_num
-    validates :phone_num, format: {with: /\A\d{10,11}\z/, message: "is invalid. Input half-width characters."}
+    validates :phone_num, format: { with: /\A\d{10,11}\z/, message: 'is invalid. Input half-width characters.' }
   end
 
   def save

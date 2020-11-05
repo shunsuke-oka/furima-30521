@@ -16,7 +16,7 @@ RSpec.describe UserBuy, type: :model do
   it 'post_numが半角のハイフンを含んだ正しい形式でないと保存できないこと' do
     @user_buy.post_num = '1234567'
     @user_buy.valid?
-    expect(@user_buy.errors.full_messages).to include("Post num is invalid. Include hyphen(-)")
+    expect(@user_buy.errors.full_messages).to include('Post num is invalid. Include hyphen(-)')
   end
   it 'area_idが空だと保存できないこと' do
     @user_buy.area_id = ''

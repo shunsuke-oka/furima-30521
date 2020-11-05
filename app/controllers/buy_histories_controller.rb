@@ -26,10 +26,10 @@ class BuyHistoriesController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY'] # 自身のPAY.JPテスト秘密鍵を記述しましょう
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
-      card: buy_params[:token],    # カードトークン
+      amount: @item.price, # 商品の値段
+      card: buy_params[:token], # カードトークン
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
@@ -39,8 +39,6 @@ class BuyHistoriesController < ApplicationController
   end
 
   def root_redirect
-    if current_user == @item.user
-      redirect_to root_path
-    end
+    redirect_to root_path if current_user == @item.user
   end
 end
