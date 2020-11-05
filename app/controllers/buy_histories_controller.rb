@@ -1,6 +1,7 @@
 class BuyHistoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :find_params, only: [:index, :create]
+  before_action :root_redirect, only: [:index, :create]
 
   def index
     @user_buy = UserBuy.new
@@ -35,6 +36,11 @@ class BuyHistoriesController < ApplicationController
 
   def find_params
     @item = Item.find(params[:item_id])
-     
+  end
+
+  def root_redirect
+    if current_user == @item.user
+      redirect_to root_path
+    end
   end
 end
