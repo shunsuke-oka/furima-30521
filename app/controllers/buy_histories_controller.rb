@@ -1,4 +1,5 @@
 class BuyHistoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :find_params, only: [:index, :create]
 
   def index

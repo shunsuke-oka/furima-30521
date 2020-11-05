@@ -6,13 +6,11 @@ class UserBuy
     validates :token
 
     validates :post_num, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :area_id, numericality: { other_than: 0, message: "can't be blank" }
+    validates :area_id, numericality: { other_than: 1 }
     validates :city_name
     validates :city_num
     validates :phone_num, format: {with: /\A\d{10,11}\z/, message: "is invalid. Input half-width characters."}
   end
-
-  validates :building_name
 
   def save
     buy_history = BuyHistory.create!(item_id: item_id, user_id: user_id)
