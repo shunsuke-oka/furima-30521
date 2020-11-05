@@ -9,7 +9,6 @@ class BuyHistoriesController < ApplicationController
 
   def create
     @user_buy = UserBuy.new(buy_params)
-    # binding.pry
     if @user_buy.valid?
       pay_item
       @user_buy.save
