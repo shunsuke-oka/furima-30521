@@ -14,4 +14,3 @@ window.addEventListener('input', () => {
     profit.innerHTML = `${gain}`
   })
 });
-setInterval(check, 1000);
