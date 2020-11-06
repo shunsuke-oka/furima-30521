@@ -12,6 +12,7 @@ class Item < ApplicationRecord
     validates :delivery_id
     validates :area_id
     validates :day_id
+    validates :image
   end
   validates :price, format: { with: /\A[0-9]+\z/ }
 
