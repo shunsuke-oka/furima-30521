@@ -38,7 +38,7 @@ class BuyHistoriesController < ApplicationController
   end
 
   def root_redirect
-    if current_user == @item.user
+    if current_user == @item.user || @item.buy_history.present?
       redirect_to root_path
     end
   end
